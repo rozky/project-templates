@@ -12,3 +12,6 @@ Quick start templates for various projects
 - MongoDB
 - Jetty
 - Maven
+- AngularJS (pending)
+- Twitter Bootstrap (pending)
+- LessCSS (pending)
