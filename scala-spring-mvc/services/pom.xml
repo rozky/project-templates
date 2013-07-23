@@ -4,18 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>com.rozarltd.spring</groupId>
-        <artifactId>aggregator</artifactId>
+        <groupId>com.rozarltd.sample</groupId>
+        <artifactId>parent</artifactId>
         <version>1.0.0.SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-services</artifactId>
+    <artifactId>services</artifactId>
     <packaging>jar</packaging>
-    <name>Spring - Services Module</name>
+    <name>@PROJECT_NAME: Services Module</name>
 
     <build>
-        <finalName>[TBD]</finalName>
+
     </build>
+
+    <dependencies>
+        <!-- ===== scala standard library ===== -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

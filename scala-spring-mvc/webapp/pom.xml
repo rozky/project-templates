@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>com.rozarltd.spring</groupId>
-        <artifactId>aggregator</artifactId>
+        <groupId>com.rozarltd.sample</groupId>
+        <artifactId>parent</artifactId>
         <version>1.0.0.SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-web</artifactId>
+    <artifactId>webapp</artifactId>
     <packaging>war</packaging>
-    <name>Spring - Web Module</name>
+    <name>@PROJECT_NAME: Web Module</name>
 
     <build>
         <finalName>spring-web</finalName>
@@ -40,22 +40,19 @@
         <!-- ===== project components ===== -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>spring-services</artifactId>
+            <artifactId>services</artifactId>
         </dependency>
 
-        <!-- ===== servlet, jsp, jstl ===== -->
+        <!-- ===== scala standard library ===== -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+
+        <!-- ===== servlet ===== -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
         </dependency>
 
         <!-- ===== spring framework : core ===== -->
@@ -78,10 +75,16 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
+        <!-- ===== view ===== -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring3</artifactId>
+        </dependency>
+
         <!-- ===== JSON support ===== -->
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
     </dependencies>
 </project>
