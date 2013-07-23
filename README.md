@@ -15,3 +15,4 @@ Quick start templates for various projects
 - AngularJS (pending)
 - Twitter Bootstrap (pending)
 - LessCSS (pending)
+- Html5 Boilerplate
