@@ -30,7 +30,8 @@ class ViewEngineConfig {
         val resolver: ThymeleafViewResolver = new ThymeleafViewResolver
         resolver.setTemplateEngine(templateEngine)
         resolver.setOrder(1)
-        resolver.setViewNames(Array("*.html", "*.xhtml"))
+//        resolver.setViewNames(Array("*.html", "*.xhtml"))
+        resolver.setViewNames(Array("*"))
         resolver
     }
 }

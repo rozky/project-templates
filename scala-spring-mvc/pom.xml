@@ -44,11 +44,7 @@
         <apache.commons.lang.version>2.4.0</apache.commons.lang.version>
 
         <!-- ===== testing =====-->
-        <org.scalatest.version>2.0.M6-SNAP8</org.scalatest.version>
-
-        <!-- ===== plugin =====-->
-        <maven.surefire.plugin.version>2.5</maven.surefire.plugin.version>
-        <maven.scala.plugin.version>2.9.1</maven.scala.plugin.version>
+        <scalatest.version>2.0.M6-SNAP34</scalatest.version>
     </properties>
 
     <build>
@@ -60,6 +56,22 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.15.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${scala.version}</scalaVersion>
                 </configuration>
             </plugin>
         </plugins>
@@ -84,7 +96,7 @@
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                         <junitxml>.</junitxml>
                         <!--<filereports>WDF TestSuite.txt</filereports>-->
-                        <htmlreporters>${project.build.directory}/html/scalatest</htmlreporters>
+                        <htmlreporters>${project.build.directory}/scalatest</htmlreporters>
                         <testFailureIgnore>false</testFailureIgnore>
                         <parallel>true</parallel>
                     </configuration>
@@ -127,17 +139,24 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${spring.version}</version>
-                <!--
-                    remove dependency on logging framework as I want to use slf4j instead of it,
-                    defined later in this pom
-                -->
+                <!--&lt;!&ndash;-->
+                    <!--remove dependency on logging framework as I want to use slf4j instead of it,-->
+                    <!--defined later in this pom-->
+                <!--&ndash;&gt;-->
                 <!--<exclusions>-->
-                <!--<exclusion>-->
-                <!--<groupId>commons-logging</groupId>-->
-                <!--<artifactId>commons-logging</artifactId>-->
-                <!--</exclusion>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>commons-logging</groupId>-->
+                        <!--<artifactId>commons-logging</artifactId>-->
+                    <!--</exclusion>-->
                 <!--</exclusions>-->
             </dependency>
+            <!--<dependency> &lt;!&ndash; required by scala compiler because spring classes depend on it &ndash;&gt;-->
+                <!--<groupId>commons-logging</groupId>-->
+                <!--<artifactId>commons-logging</artifactId>-->
+                <!--<version>1.1.1</version>-->
+                <!--&lt;!&ndash;<scope>provided</scope>&ndash;&gt;-->
+                <!--<optional>true</optional>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
@@ -253,8 +272,8 @@
             <!-- ===== scala : test ===== -->
             <dependency>
                 <groupId>org.scalatest</groupId>
-                <artifactId>scalatest_${scalatest.scala.version}</artifactId>
-                <version>2.0.M6-SNAP8</version>
+                <artifactId>scalatest_2.10</artifactId>
+                <version>${scalatest.version}</version>
                 <scope>test</scope>
             </dependency>
             <!-- required by scalatest-maven-plugin to generate HTML report -->
